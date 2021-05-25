@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow'
+}
+
+group 'com.etn319'
+version '0.0.1'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+    implementation 'com.google.guava:guava'
+}
+
+shadowJar {
+    archiveBaseName.set('gradleHelloWorld')
+    archiveVersion.set(version)
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'com.etn319.Main'
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar

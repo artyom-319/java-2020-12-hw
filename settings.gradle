@@ -1,2 +1,4 @@
 rootProject.name = 'java-2020-12-hw'
 include 'L01-gradle'
+include 'L04-generics'
+

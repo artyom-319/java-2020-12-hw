@@ -1,6 +1,6 @@
 package com.etn319.hw02.homework;
 
-public class Customer {
+public class Customer implements Comparable<Customer>, Cloneable {
     private final long id;
     private String name;
     private long scores;
@@ -55,5 +55,19 @@ public class Customer {
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        return Long.compare(this.scores, o.scores);
+    }
+
+    @Override
+    public Customer clone() {
+        try {
+            return (Customer) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new Customer(id, name, scores);
+        }
     }
 }
